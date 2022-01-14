@@ -10,7 +10,7 @@ public class ApplicationDbContext : DbContext
     public ApplicationDbContext(DbContextOptions options)
         : base(options)
     {
-
+        
     }
 
     /// 
@@ -24,4 +24,6 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<Url>().Property(x => x.LongUrl).IsRequired();
         modelBuilder.Entity<Url>().HasIndex(x => x.ShortUrl).IsUnique();
     }
+
+    public DbSet<Url> Url { get; set; }
 }
